@@ -1,0 +1,116 @@
+<div id="app">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">ADLSA-RecruitmentOfficeSystem</a>
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a href="/home" class="nav-link" routerLink="home">Home</a>
+      </li>
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/adlsa" class="nav-link" routerLink="adlsa">ADLSA Employee</a>
+      </li>
+      <li class="nav-item">
+        <a href="/recruitment" class="nav-link" *ngIf="isLoggedIn" routerLink="recruitment">Recruitment Office</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="onPressBack()" *ngIf="isLoggedIn" routerLinkActive="active">Back</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Login</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">LogOut</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!--<div class="container" *ngIf="display">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-12">-->
+<!--      <div class="card bg-dark my-5">-->
+<!--        <div class="card-body">-->
+<!--          <h2 class="card-title text-center text-white py-3">{{ title }}</h2>-->
+<!--          <ul class="text-center list-inline py-3">-->
+<!--            <li class="list-inline-item">-->
+<!--              <a routerLink="/recruitmentUsers" ><button class="btn btn-info" (click)="onPressRec()">Recruitment Office</button></a>-->
+<!--&lt;!&ndash;              <a><button class="btn btn-info" (click)="onPressAdlsa()">ADLSA</button></a>&ndash;&gt;-->
+<!--            </li>-->
+<!--            <li class="list-inline-item">-->
+<!--              <a routerLink="/adlsaUsers"><button class="btn btn-info" (click)="onPressAdlsa()">ADLSA Employee</button></a>-->
+<!--&lt;!&ndash;              <a><button class="btn btn-info" (click)="onPressRec()">Recruitment Office</button></a>&ndash;&gt;-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <router-outlet></router-outlet>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="container" *ngIf="displayAdlsa">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-12">-->
+<!--      <div class="card bg-dark my-5">-->
+<!--        <div class="card-body">-->
+<!--          <h2 class="card-title text-center text-white py-3">ADLSA Employee</h2>-->
+<!--          <ul class="text-center list-inline py-3">-->
+<!--            <li class="list-inline-item">-->
+<!--              <a routerLink="/offices" class="btn btn-info">List Offices</a>-->
+<!--            </li>-->
+<!--            <li class="list-inline-item">-->
+<!--              <a routerLink="/addoffice" class="btn btn-info">Add Office</a>-->
+<!--            </li>-->
+<!--            <li class="list-inline-item">-->
+<!--              <a routerLink="/allsubmissionreport" class="btn btn-info">View Submission Report</a>-->
+<!--            </li>-->
+<!--            <li class="list-inline-item">-->
+<!--              <a routerLink="/allfiledb" class="btn btn-info">View Submitted files</a>-->
+<!--            </li>-->
+<!--&lt;!&ndash;            <li class="list-inline-item">&ndash;&gt;-->
+<!--&lt;!&ndash;              <a routerLink="/errorMessage" class="btn btn-info">View file content validation</a>&ndash;&gt;-->
+<!--&lt;!&ndash;            </li>&ndash;&gt;-->
+<!--            <li class="list-inline-item">-->
+<!--              <button class="btn btn-info" (click)="onPressHome()">Home</button>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <router-outlet></router-outlet>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="container" *ngIf="displayRec">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-12">-->
+<!--      <div class="card bg-dark my-5">-->
+<!--        <div class="card-body">-->
+<!--          <h2 class="card-title text-center text-white py-3">Recruitment Office</h2>-->
+<!--          <ul class="text-center list-inline py-3">-->
+<!--            <li class="list-inline-item">-->
+<!--              <a routerLink="/upload/117" class="btn btn-info">Upload CSV file</a>-->
+<!--            </li>-->
+<!--            <li class="list-inline-item">-->
+<!--              <a routerLink="/csvfiles" class="btn btn-info">View CSV file</a>-->
+<!--            </li>-->
+<!--            <li class="list-inline-item">-->
+<!--              <button class="btn btn-info" (click)="onPressHome()">Home</button>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <router-outlet></router-outlet>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

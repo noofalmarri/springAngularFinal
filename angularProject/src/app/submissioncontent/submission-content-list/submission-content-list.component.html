@@ -1,0 +1,30 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Worker Name</th>
+        <th scope="col">Visa Number</th>
+        <th scope="col">Sponsor Name</th>
+        <th scope="col">Arrival Date</th>
+        <th scope="col">Remark</th>
+        <th scope="col">Passport Number</th>
+        <th scope="col">Validation</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let csvfile of csvfiles">
+        <td>{{ csvfile.csvID }}</td>
+        <td>{{ csvfile.workerName }}</td>
+        <td>{{ csvfile.visaNumber }}</td>
+        <td>{{ csvfile.sponsorName }}</td>
+        <td>{{ csvfile.arrivalDate }}</td>
+        <td>{{ csvfile.remark }}</td>
+        <td>{{ csvfile.passportNo }}</td>
+        <td><button class="btn btn-info" (click)="showRecordStatus(csvfile.csvID)">Validation</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

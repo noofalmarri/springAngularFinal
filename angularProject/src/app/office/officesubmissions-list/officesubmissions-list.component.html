@@ -1,0 +1,26 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Submission ID</th>
+        <th scope="col">Date of Submission</th>
+        <th scope="col">Validation Result</th>
+        <th scope="col">License Number</th>
+        <th scope="col">File ID</th>
+        <th scope="col">Submission Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let submissionreport of submissionreports">
+        <td>{{ submissionreport.id}}</td>
+        <td>{{ submissionreport.dateOfSubmission}}</td>
+        <td>{{ submissionreport.validationResult}}</td>
+        <td>{{ submissionreport.licenseNumber}}</td>
+        <td>{{ submissionreport.fileID}}</td>
+        <td><button class="btn btn-info" (click)="showSubmissionRecords(submissionreport.id)">Show Submission Records</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">BUID</th>
+        <th scope="col">OfficeName</th>
+        <th scope="col">Address</th>
+        <th scope="col">Submissions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let office of offices">
+        <td>{{ office.buid }}</td>
+        <td>{{ office.officeName }}</td>
+        <td>{{ office.address }}</td>
+        <td><button class="btn btn-info" (click)="showOfficeSubmissions(office.buid)">Show Office Submissions</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
